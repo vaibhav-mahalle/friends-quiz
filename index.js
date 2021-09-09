@@ -1,6 +1,9 @@
 var readlineSync = require('readline-sync');
 var chalk = require('chalk');
 
+var username = readlineSync.question("Hey please enter your name. ");
+
+console.log("Welcome to the quiz:"+ username);
 
 var que = readlineSync.question("Are you a F.R.I.E.N.D.S fan?(Y/N) ");
 
@@ -77,8 +80,6 @@ var questions = [question1,question2,question3,question4,question5,question6,que
 var score = 0;
 var count = 0;
 
-var leaders = [tanay,vaibhav,akash];
-
 while(count < 9)
 {
   if(count<3)
@@ -126,23 +127,26 @@ while(count < 9)
 }
 
 
-
-
-count = 3;
+count =0;
 var i =0;
-while(i<count)
+while(i<3)
 {
   if(score>topscorers[i])
   {
-    console.log(chalk.green("Way to go !you are one of the topscorers."+score));
+    console.log(chalk.green("Way to go "+ username + " !you are one of the topscorers."+score));
   }
   i++;
 }
 
 if(i===3)
 {
-  console.log(chalk.yellowBright("Unfortunately you could not beat topscorers here is your final score:"+score));
+  console.log(chalk.yellowBright("Unfortunately "+ chalk.green(username)+ " you could not beat topscorers."+"\n"+"Here is your final score:"+score));
 }
+
+console.log(chalk.yellowBright("TopScorers are: "));
+console.log(chalk.yellowBright("Vaibhav: "+chalk.green(topscorers[0])));
+console.log(chalk.yellowBright("Akash: "+chalk.green(topscorers[1])));
+console.log(chalk.yellowBright("Tanay: "+chalk.green(topscorers[2])));
 
   
 }
